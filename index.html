@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+  <link rel="stylesheet" href="estilos.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="contenedor_pagina ancho margen">
+    <div class="contenedor_contactanos">
+      <h1>Contáctanos</h1>
+      <h2>¿Neceistas ayuda para hacer crecer tu negocio?</h2>
+      <p>Solicita mas información y juntos idearemos la estrategia perfecta para cumplir tus metas</p>
+    </div>
+
+    <div class="contenedor_formulario ancho margen">
+      <form action=".php" method="get" id="formulario">
+        <input id="nombre" class="estilo1" type="text" placeholder="Nombre*" required>
+        <input id="apellido" class="estilo1" type="text" placeholder="Apellido*" required>
+        <input id="email" class="estilo1" type="email" placeholder="Correo electronico*">
+        <input id="telefono" class="estilo1" type="tel" placeholder="Número de télefono movil">
+
+        <select class="estilos2" name="presupuestos" id="presupuestos">
+          <option value="">Selecciona tu presupuesto</option>
+          <option value="">De $18,000 - $25,000</option>
+          <option value="">De 25,000 - $45,000</option>
+          <option value="">De $45,000 - $100,000</option>
+        </select>
+
+        <input id="empresa" class="estilos2" type="text" placeholder="nombre de la empresa">
+
+        <select class="estilos2" name="Industria" id="Industria">
+          <option value="">Selecciona una industria de tu empresa</option>
+          <option value="">Inmobiliaria</option>
+          <option value="">Educación</option>
+          <option value="">Turismo</option>
+          <option value="">Energias renovables</option>
+          <option value="">Servicios prefecionales</option>
+          <option value="">Startup</option>
+          <option value="">Ecommerce</option>
+          <option value="">Financiera</option>
+          <option value="">Salud</option>
+          <option value="">Agenda digital</option>
+          <option value="">Otro</option>
+        </select>
+
+        <input id="web" class="estilos2" type="text" placeholder="Sitio web">
+        <button id="btn_validar" type="button"class="estilos2">Enviar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Funciones del sitio web -->
+  <script>
+  $("#btn_validar").click(function() {
+      if($("#nombre").val().trim()=='') {
+        alert("Escribe tu nombre ");
+        $("#nombre").focus();
+        return 0;
+      }
+
+      if($("#apellido").val().trim()=='') {
+        alert("Escribe tu apellido ");
+        $("#apellido").focus();
+        return 0;
+      }
+
+      if($("#email").val().trim()=='') {
+        alert("Escribe tu email ");
+        $("#email").focus();
+        return 0;
+      }
+
+      let expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!expresionCorreo.test($("#email").val().trim())){
+        alert("Escribe un email valido");
+        $("#email").focus();
+        return false
+      }
+
+      if($("#telefono").val().trim()=='') {
+        alert("Escribeme tu telefono ");
+        $("#telefono").focus();
+        return 0;
+      }
+
+      let expresionTelefono = /^[0-9]{10}$/;
+  if (!expresionTelefono.test($("#telefono").val().trim())) {
+    alert("Escribe un numero de telefono valido a 10 digitos");
+    $("#telefono").focus();
+    return false;
+  }
+
+       $("#formulario").submit();
+  });
+</script>
+
+</body>
+</html>
